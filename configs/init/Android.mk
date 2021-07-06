@@ -5,7 +5,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-# http://www.apache.org/licenses/LICENSE-2.0
+#      http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,15 +14,11 @@
 # limitations under the License.
 #
 
-## Device Path
-DEVICE_PATH := device/huawei/venus
+LOCAL_PATH := $(call my-dir)
 
-## Inherit common device
-$(call inherit-product, device/huawei/hi6250-common/hi6250.mk)
-
-# Init
-PRODUCT_PACKAGES += \
-    venus.rc
-
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
+include $(CLEAR_VARS)
+LOCAL_MODULE := venus.rc
+LOCAL_SRC_FILES := venus.rc
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_ETC)/init
+include $(BUILD_PREBUILT)
